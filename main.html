@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="style/style.css">
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=2b7d613a-43a5-43b8-a53a-82992e7616cf&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+  <div class="modal" id="modal-form">
+    <div class="modal__content">
+      <div class="close-btn"></div>
+      <div class="modal__title"></div>
+      <div class="modal__text"></div>
+      <input type="text" placeholder="Имя">
+      <input type="tel" placeholder="Телефон">
+      <select name="city" id="city">
+        <option value="Москва">Москва</option>
+        <option value="Санкт-Петербург">Санкт-Петербург</option>
+        <option value="Тольятти">Тольятти</option>
+      </select>
+      <div class="modal__button">
+        <button class="btn-submit yellow order-btn"></button>
+      </div>
+      <div class="modal__desc">Нажимая “Оставить заявку” вы соглашаетесь с условиями обработки и хранения сайта</div>
+    </div>
+  </div>
+  <div class="modal" id="modal-confirm">
+    <div class="modal__content">
+      <div class="close-btn"></div>
+      <div class="modal__title__confirm">Спасибо!</div>
+      <div class="modal__text__confirm">Ваша заявка отправлена, менеджер свяжется с вами в ближайшее время</div>
+      <div class="modal__button">
+        <button class="btn-submit yellow ok">ОК</button>
+      </div>
+    </div>
+  </div>
+  <header class="header">
+    <div class="header__nav container">
+      <button class="nav-toggle" data-bs-toggle="collapse" data-bs-target="#burgerToggler" aria-controls="burgerToggler" aria-expanded="false">
+        <span class="bar-top"></span>
+        <span class="bar-mid"></span>
+        <span class="bar-bot"></span>
+      </button>
+      <div class="nav__logo">
+        <a href="./main.html"><img src="./img/main_logo.png" width="160" alt="Лого"></a>
+      </div>
+      <div class="nav__city outer">
+        <div class="city__preambula">Город</div>
+        <div class="current__city" data-city="Москва"></div>
+        <div class="city-choise">
+          <a class="city-choise__item" href="#">Москва</a>
+          <a class="city-choise__item" href="#">Санкт-Петербург</a>
+          <a class="city-choise__item" href="#">Тольятти</a>
+        </div>
+      </div>
+      <div class="nav__menu outer">
+        <ul class="menu__list">
+          <li class="list__item"><a href="./about.html">О компании</a></li>
+          <li class="list__item dropdown"><a href="#">Услуги</a>
+            <div class="dropdown__menu">
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под залог ПТС автомобиля</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под залог автомобиля</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под спецтехнику</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под грузовой транспорт</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под коммерческий транспорт</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под залог мототехники</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под водный транспорт</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="list__item"><a href="./contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="nav__phone">
+        <div class="phone__icon">
+          <a href="tel:88007756033">
+            <svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_101_3334)">
+                <path d="M17.4754 12.5382C16.3122 12.5382 15.17 12.3563 14.0877 11.9986C13.5573 11.8177 12.9053 11.9837 12.5816 12.3161L10.4453 13.9288C7.96768 12.6063 6.44154 11.0807 5.13708 8.62169L6.70235 6.541C7.10902 6.13487 7.25488 5.54162 7.08012 4.98498C6.7209 3.89693 6.53842 2.7553 6.53842 1.59155C6.53847 0.750845 5.85452 0.0668945 5.01387 0.0668945H1.5246C0.683951 0.0668945 0 0.750845 0 1.5915C0 11.2276 7.83938 19.0669 17.4754 19.0669C18.3161 19.0669 19 18.3829 19 17.5423V14.0628C19 13.2222 18.316 12.5382 17.4754 12.5382Z" fill="#FFDE52"/>
+              </g>
+              <defs>
+                <clippath id="clip0_101_3334">
+                  <rect width="19" height="19" fill="white" transform="translate(0 0.0668945)"/>
+                </clippath>
+              </defs>
+            </svg>
+          </a>
+        </div>
+        <div class="phone__container outer">
+          <div class="phone__number">8 800 775-60-33</div>
+          <a class="phone__link call-order" href="tel:88007756033">Заказать звонок</a>
+        </div>
+      </div>
+    </div>
+    <div class="header__menu">
+      <div class="header__menu-burger" id="burgerToggler">
+        <ul class="menu-burger__list">
+          <li class="menu-burger__item city-change">
+            <svg width="11" height="16" viewbox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.65992 0.540405C5.76519 0.552506 5.87158 0.562187 5.97685 0.575498C6.7283 0.667464 7.42712 0.928841 8.05986 1.37536C9.20999 2.18612 9.92672 3.32238 10.2134 4.77206C10.3008 5.21132 10.3344 5.65784 10.2963 6.10678C10.2649 6.47343 10.1765 6.82799 10.0667 7.17528C9.84833 7.87228 9.55156 8.53057 9.22455 9.17312C8.6366 10.3324 7.95907 11.4299 7.24681 12.5033C6.67455 13.3648 6.07764 14.2071 5.45498 15.0263C5.44826 15.036 5.44042 15.0444 5.43034 15.0565C5.42027 15.0469 5.41019 15.0384 5.40235 15.0287C4.1615 13.3806 2.99681 11.6731 1.98555 9.84835C1.58127 9.11625 1.20946 8.36479 0.918291 7.57097C0.763745 7.14866 0.634958 6.71787 0.571124 6.26772C0.527448 5.9652 0.531927 5.66026 0.556565 5.35653C0.618159 4.60749 0.811901 3.9008 1.15795 3.24857C1.86348 1.91385 2.91058 1.06074 4.28917 0.685615C4.56803 0.60938 4.85248 0.567027 5.14029 0.550086C5.15709 0.548876 5.17277 0.544036 5.18957 0.540405C5.34635 0.540405 5.50314 0.540405 5.65992 0.540405ZM7.25801 5.34443C7.25465 4.2372 6.43377 3.35505 5.41131 3.35868C4.4034 3.3611 3.58588 4.25172 3.58812 5.34443C3.59036 6.44439 4.4146 7.32775 5.43482 7.32533C6.44049 7.3217 7.26025 6.43108 7.25801 5.34443Z" fill="#5C657E"/>
+              </svg>
+            <div class="nav__city">
+              <div class="city__preambula">Город</div>
+              <div class="current__city burger" data-city="Москва"></div>
+              <div class="city-choise burger">
+                <a class="city-choise__item burger" href="#">Москва</a>
+                <a class="city-choise__item burger" href="#">Санкт-Петербург</a>
+                <a class="city-choise__item burger" href="#">Тольятти</a>
+              </div>
+            </div>
+          </li>
+          <li class="menu-burger__item nav"><a href="./about.html">О компании</a></li>
+          <li class="menu-burger__item list__item dropdown nav" id="burger-menu-service"><a href="#">Услуги</a>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под залог ПТС автомобиля</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под залог автомобиля</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под спецтехнику</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под грузовой транспорт</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под коммерческий транспорт</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под залог мототехники</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под водный транспорт</a>
+            </li>
+          </li>
+          <li class="menu-burger__item nav"><a href="./contacts.html">Контакты</a></li>
+          <li class="menu-burger__item phone">
+            <div class="nav__phone">
+              <div class="phone__icon">
+                <a href="tel:88007756033">
+                  <svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_101_3334)">
+                      <path d="M17.4754 12.5382C16.3122 12.5382 15.17 12.3563 14.0877 11.9986C13.5573 11.8177 12.9053 11.9837 12.5816 12.3161L10.4453 13.9288C7.96768 12.6063 6.44154 11.0807 5.13708 8.62169L6.70235 6.541C7.10902 6.13487 7.25488 5.54162 7.08012 4.98498C6.7209 3.89693 6.53842 2.7553 6.53842 1.59155C6.53847 0.750845 5.85452 0.0668945 5.01387 0.0668945H1.5246C0.683951 0.0668945 0 0.750845 0 1.5915C0 11.2276 7.83938 19.0669 17.4754 19.0669C18.3161 19.0669 19 18.3829 19 17.5423V14.0628C19 13.2222 18.316 12.5382 17.4754 12.5382Z" fill="#343A4B"/>
+                    </g>
+                    <defs>
+                      <clippath id="clip0_101_3335">
+                        <rect width="19" height="19" fill="white" transform="translate(0 0.0668945)"/>
+                      </clippath>
+                    </defs>
+                  </svg>
+                </a>
+              </div>
+              <div class="phone__container">
+                <div class="phone__number">8 800 775-60-33</div>
+              </div>
+            </div>
+            <button class="btn-submit yellow call-order">Заказать звонок</button>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="menu__title">
+          <h1 class="main-title">Срочный займ<br>под залог автомобиля</h1>
+          <button class="btn-submit yellow submit-order">Оставить заявку</button>
+        </div>
+        <div class="menu__benefits">
+          <ul class="benefits__list">
+            <li class="benefits__item">
+              <div class="benefits__img">
+                <img src="./img/car_icon.png" width="55" height="40" alt="">
+              </div>
+              <p class="benefits__text"><b>Вы продолжаете пользоваться</b> автомобилем</p>
+            </li>
+            <li class="benefits__item">
+              <div class="benefits__img">
+                <img src="./img/docs_icon.png" width="46" height="46" alt="">
+              </div>
+              <p class="benefits__text"><b>Без лишних документов:</b> не нужна справка о доходах и поручители</p>
+            </li>
+            <li class="benefits__item">
+              <div class="benefits__img">
+                <img src="./img/shield_icon.png" width="31" height="36" alt="">
+              </div>
+              <p class="benefits__text"><b>Без скрытых платежей,</b> комиссий, процентов</p>
+            </li>
+            <li class="benefits__item">
+              <div class="benefits__img">
+                <img src="./img/time_icon.png" width="36" height="36" alt="">
+              </div>
+              <p class="benefits__text">Совершение сделки <b>в течение часа</b></p>
+            </li>
+            <li class="benefits__item">
+              <div class="benefits__img">
+                <img src="./img/wallet_icon.png" width="44" height="41" alt="">
+              </div>
+              <p class="benefits__text"><b>Расчет</b> наличными или перевод на карту</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="info">
+    <div class="container">
+      <div class="info__content">
+        <div class="title">
+          <h2>Транспортные средства,<br>которые мы принимаем в залог</h2>
+        </div>
+        <div class="swiper-cards">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="card__image">
+                    <img src="./img/card1.png" alt="">
+                  </div>
+                  <div class="card__description">
+                    <a href="./context.html"><p class="description__text"><b>Легковые автомобили.</b><br>Отечественные и импортные авто</p></a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="card__image">
+                    <img src="./img/card2.png" alt="">
+                  </div>
+                  <div class="card__description">
+                    <a href="./context.html"><p class="description__text"><b>Спецтехника.</b><br>Строительная техника, погрузчики, краны</p></a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="card__image">
+                    <img src="./img/card3.png" alt="">
+                  </div>
+                  <div class="card__description">
+                    <a href="./context.html"><p class="description__text"><b>Грузовой транспорт.</b><br>Автофургоны, тягачи, микроавтобусы</p></a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="card__image">
+                    <img src="./img/card4.png" alt="">
+                  </div>
+                  <div class="card__description">
+                    <a href="./context.html"><p class="description__text"><b>Коммерческий транспорт.</b><br>Туристические автобусы, маршрутные такси</p></a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="card__image">
+                    <img src="./img/card5.png" alt="">
+                  </div>
+                  <div class="card__description">
+                    <a href="./context.html"><p class="description__text"><b>Водный транспорт.</b><br>Парусные и моторные суда, яхты, гидроциклы, катеры</p></a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="card">
+                  <div class="card__image">
+                    <img src="./img/card6.png" alt="">
+                  </div>
+                  <div class="card__description">
+                    <a href="./context.html"><p class="description__text"><b>Мототехника.</b><br>Квадроциклы, мотоциклы, скутеры</p></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="info__cards">
+          <div class="card">
+            <div class="card__image">
+              <img src="./img/card1.png" alt="">
+            </div>
+            <div class="card__description">
+              <a href="./context.html"><p class="description__text"><b>Легковые автомобили.</b><br>Отечественные и импортные авто</p></a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image">
+              <img src="./img/card2.png" alt="">
+            </div>
+            <div class="card__description">
+              <a href="./context.html"><p class="description__text"><b>Спецтехника.</b><br>Строительная техника, погрузчики, краны</p></a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image">
+              <img src="./img/card3.png" alt="">
+            </div>
+            <div class="card__description">
+              <a href="./context.html"><p class="description__text"><b>Грузовой транспорт.</b><br>Автофургоны, тягачи, микроавтобусы</p></a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image">
+              <img src="./img/card4.png" alt="">
+            </div>
+            <div class="card__description">
+              <a href="./context.html"><p class="description__text"><b>Коммерческий транспорт.</b><br>Туристические автобусы, маршрутные такси</p></a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image">
+              <img src="./img/card5.png" alt="">
+            </div>
+            <div class="card__description">
+              <a href="./context.html"><p class="description__text"><b>Водный транспорт.</b><br>Парусные и моторные суда, яхты, гидроциклы, катеры</p></a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__image">
+              <img src="./img/card6.png" alt="">
+            </div>
+            <div class="card__description">
+              <a href="./context.html"><p class="description__text"><b>Мототехника.</b><br>Квадроциклы, мотоциклы, скутеры</p></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="form">
+    <div class="container">
+      <div class="title">
+        <h2>Кредит под ПТС в Москве в автоломбарде “Pobeda”</h2>
+      </div>
+      <div class="form__text">
+        <p>Заполните поля ниже и получите сразу одобренный займ</p>
+      </div>
+      <div class="form__items">
+        <div class="form__item">
+          <input type="text" name="brand" placeholder="Марка ТС" id="">
+        </div>
+        <div class="form__item">
+          <input type="text" name="model" placeholder="Модель ТС" id="">
+        </div>
+        <div class="form__item">
+          <input type="text" name="startYear" placeholder="Год выпуска" id="">
+        </div>
+        <div class="form__item">
+          <input type="text" name="count" placeholder="Сумма займа" id="">
+        </div>
+      </div>
+      <div class="form__button">
+        <button class="btn-submit black submit-order">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+  <section class="calc">
+    <div class="container">
+      <h2 class="title white-text">Онлайн-калькулятор</h2>
+      <div class="calc__content">
+        <div class="calc__box">
+          <div class="calc__item">
+            <div class="calc__pre">Необходимая сумма</div>
+            <div class="calc__input">
+              <input type="number" min="5000" max="10000000" value="5000000" id="sliderValue1"> ₽
+            </div>
+            <div class="calc__range">
+              <input type="range" min="5000" max="10000000" step="1000" value="5000000" class="slider1">
+              <div class="progress1"></div>
+            </div>
+            <div class="calc__value">
+              <div>5 000</div>
+              <div style="padding-left: 40px;">5 000 000</div>
+              <div>10 000 000</div>
+            </div>
+          </div>
+          <div class="calc__item">
+            <div class="calc__pre">Срок займа</div>
+            <div class="calc__input">
+              <input type="number" min="61" max="1000" value="500" id="sliderValue2"> дней
+            </div>
+            <div class="calc__range">
+              <input type="range" min="61" max="1000" value="530" step="1" class="slider2">
+              <div class="progress2"></div>
+            </div>
+            <div class="calc__value">
+              <div>61</div>
+              <div style="padding-left: 25px;">500</div>
+              <div>1 000</div>
+            </div>
+          </div>
+          <div class="form__button">
+            <button class="btn-submit yellow accept-order">получить одобрение</button>
+          </div>
+        </div>
+        <div class="calc__description">
+          <div class="description__item main">Процесс получения займа</div>
+          <div class="description__item">
+            <img src="./img/dot_yellow.svg" alt="">
+            <p>Выберите сумму займа в калькуляторе</p>
+          </div>
+          <div class="description__item">
+            <img src="./img/dot_white.svg" alt="">
+            <p>Получите одобрение</p>
+          </div>
+          <div class="description__item">
+            <img src="./img/dot_white.svg" alt="">
+            <p>Подпишите договор и получите деньги наличными или на карту</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="reqs">
+    <div class="container">
+      <div class="title">
+        <h2>Требования к автомобилю под залог в Автоломбарде</h2>
+      </div>
+      <div class="reqs__slider">
+        <div class="reqs__slider__titles">
+          <div class="reqs__slider__title bold active-line">Требования при залоге под ПТС</div>
+          <div class="reqs__slider__title">Требования при залоге под АВТО</div>
+        </div>
+        <div class="reqs__card visible" id="firstCard">
+          <ul>
+            <li class="reqs__item">Подтверждение собственности или генеральная доверенность на транспорт</li>
+            <li class="reqs__item">Транспорт не обременен другим залогом</li>
+            <li class="reqs__item">Транспорт зарегистрирован в ГИБДД</li>
+            <li class="reqs__item">Возможна передача в залог неисправного автотранспорта (осмотр и оценка ТС проводится на территории клиента)</li>
+            <li class="reqs__item">Транспортное средство не старше 20 лет</li>
+            <li class="reqs__item">Возможно предоставление дубликата ПТС</li>
+          </ul>
+        </div>
+        <div class="reqs__card hidden" id="secondCard">
+          <ul>
+            <li class="reqs__item">Выдача займов под залоговые, арестованные, зарегистрированные не на территории РФ транспортные средства (характеристики влияют на оценочную стоимость).</li>
+            <li class="reqs__item">Транспортное средство находится в исправном состоянии</li>
+            <li class="reqs__item">Подтверждение собственности или генеральная доверенность на транспорт</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reqs__content">
+        <div class="reqs__card">
+          <div class="regs__card__title">
+            <img src="./img/docs__icon.svg" alt="">
+            <h3>Требования при залоге под ПТС</h3>
+          </div>
+          <ul>
+            <li class="reqs__item">Подтверждение собственности или генеральная доверенность на транспорт</li>
+            <li class="reqs__item">Транспорт не обременен другим залогом</li>
+            <li class="reqs__item">Транспорт зарегистрирован в ГИБДД</li>
+            <li class="reqs__item">Возможна передача в залог неисправного автотранспорта (осмотр и оценка ТС проводится на территории клиента)</li>
+            <li class="reqs__item">Транспортное средство не старше 20 лет</li>
+            <li class="reqs__item">Возможно предоставление дубликата ПТС</li>
+          </ul>
+        </div>
+        <div class="reqs__card">
+          <div class="regs__card__title">
+            <img src="./img/car2_icon.svg" alt="">
+            <h3>Требования при залоге под транспортное средство</h3>
+          </div>
+          <ul>
+            <li class="reqs__item">Выдача займов под залоговые, арестованные, зарегистрированные не на территории РФ транспортные средства (характеристики влияют на оценочную стоимость).</li>
+            <li class="reqs__item">Транспортное средство находится в исправном состоянии</li>
+            <li class="reqs__item">Подтверждение собственности или генеральная доверенность на транспорт</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reqs__button">
+        <button class="btn-submit yellow submit-order">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+  <section class="about-us">
+    <div class="container">
+      <div class="title">
+        <h2>Почему мы?</h2>
+      </div>
+      <div class="about-us__text"><b>Если банк отказывает в выдаче кредита</b> из-за плохой кредитной истории, в МФО непосильные проценты, а деньги нужны срочно, то передача автомобиля или ПТС под залог для получения займа — лучший способ поправить финансовое положение. Преимущество такого кредита в том, что <span>вы можете пользоваться автомобилем на всем протяжении действия договора,</span> транспортное средство не будет находиться на стоянке.</div>
+      <div class="about-us__card">
+        <div class="card__title">
+          <h3>Автоломбард включен в реестр ЦБРФ</h3>
+        </div>
+        <div class="card__text">Это значит, что договорные отношения совершаются <span>в полном соответствии</span> с принятыми нормативными актами. Сделка по передаче авто в залог проходит <span>максимально прозрачно</span> — все условия согласовываются до подписания документов. В договоре нет дополнительной страховки, скрытых комиссий или платежей.</div>
+        <div class="card__points-block">
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon1.svg" alt="">
+            </div>
+            <div class="point__text">Возможность передачи в залог транспортного средства с юридическими ограничениями</div>
+          </div>
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon2.svg" alt="">
+            </div>
+            <div class="point__text">Филиалы в 17 регионах РФ</div>
+          </div>
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon3.svg" alt="">
+            </div>
+            <div class="point__text">Право пользования транспортным средством на весь период действия договора</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-us__card">
+        <div class="card__title">
+          <h3>Полититка лояльности</h3>
+        </div>
+        <div class="card__text">Для получения залога понадобится только <span>паспорт гражданина РФ, ПТС и СТС</span> транспортного средства. Не требуется предоставление справки о доходах, поручитель не нужен. Не важна ваша кредитная история и наличие официальной работы. В работе автоломбард руководствуется политикой лояльностью и индивидуальным подходом к каждому клиенту.</div>
+        <div class="card__points-block">
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon4.svg" alt="">
+            </div>
+            <div class="point__text">Минимальный пакет документов</div>
+          </div>
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon5.svg" alt="">
+            </div>
+            <div class="point__text">Оценка стоимости транспортного средства до 90% его рыночной цены</div>
+          </div>
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon6.svg" alt="">
+            </div>
+            <div class="point__text">Передача в залог любых категорий ТС</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-us__card">
+        <div class="card__title">
+          <h3>Деньги в день подписания договора</h3>
+        </div>
+        <div class="card__text">Если действительно срочно понадобились деньги, то поможет займ под залог авто или ПТС. Оформление заявки, оценка транспортного средства и подписание документов занимает <span>не более часа</span>. Сразу после этого вы получаете деньги на банковскую карту или наличными. Позвоните нам — <span>оператор принимает звонки круглосуточно,</span> ведь деньги могут понадобиться в любое время суток.</div>
+        <div class="card__points-block">
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon7.svg" alt="">
+            </div>
+            <div class="point__text">Прием заявок онлайн 24/7</div>
+          </div>
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon8.svg" alt="">
+            </div>
+            <div class="point__text">Оформление документов онлайн</div>
+          </div>
+          <div class="card__point">
+            <div class="point__img">
+              <img src="./img/icon9.svg" alt="">
+            </div>
+            <div class="point__text">Решение о выдаче займа за 5 минут</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="examples">
+    <div class="container">
+      <div class="title">
+        <h2>Примеры выданных займов</h2>
+      </div>
+      <div class="swiper2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="examples__card">
+              <div class="examples__img-block">
+                <img src="./img/example1.jpg" alt="">
+              </div>
+              <div class="examples__description">
+                <div class="name">Hyundai Solaris</div>
+                <div class="description">270 000 км. / 2013 г.в. / бензин</div>
+                <div class="price">Мы выдали: <b>280 000 ₽</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="examples__card">
+              <div class="examples__img-block">
+                <img src="./img/example2.jpg" alt="">
+              </div>
+              <div class="examples__description">
+                <div class="name">Ford Focus</div>
+                <div class="description">185 000 км. / 2011г.в. / бензин</div>
+                <div class="price">Мы выдали: <b>293 000 ₽</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="examples__card">
+              <div class="examples__img-block">
+                <img src="./img/example3.jpg" alt="">
+              </div>
+              <div class="examples__description">
+                <div class="name">Lada 4x4 (Нива)</div>
+                <div class="description">3 км. / 2020г.в. / бензин</div>
+                <div class="price">Мы выдали: <b>645 000 ₽</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="examples__card">
+              <div class="examples__img-block">
+                <img src="./img/example1.jpg" alt="">
+              </div>
+              <div class="examples__description">
+                <div class="name">Hyundai Solaris</div>
+                <div class="description">270 000 км. / 2013 г.в. / бензин</div>
+                <div class="price">Мы выдали: <b>280 000 ₽</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="examples__card">
+              <div class="examples__img-block">
+                <img src="./img/example2.jpg" alt="">
+              </div>
+              <div class="examples__description">
+                <div class="name">Ford Focus</div>
+                <div class="description">185 000 км. / 2011г.в. / бензин</div>
+                <div class="price">Мы выдали: <b>293 000 ₽</b></div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="examples__card">
+              <div class="examples__img-block">
+                <img src="./img/example3.jpg" alt="">
+              </div>
+              <div class="examples__description">
+                <div class="name">Lada 4x4 (Нива)</div>
+                <div class="description">3 км. / 2020г.в. / бензин</div>
+                <div class="price">Мы выдали:<b>645 000 ₽</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination2"></div>
+        <div class="swiper-button-prev2"></div>
+        <div class="swiper-button-next2"></div>
+      </div>
+    </div>
+  </section>
+  <section class="answers">
+    <div class="container">
+      <div class="title">
+        <h2>Вопросы - ответы</h2>
+      </div>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Как получить займ в автоломбарде?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              К заемщику предъявляются следующие требования: Гражданство РФ. Возраст от 18 лет. Транспорт, передаваемый в залог, является собственностью заемщика. Транспортное средство не находится в другом залоге. Документы для оформления договора: паспорт РФ, ПТС и СТС. Доход, кредитная история, официальное трудоустройство на получение займа не влияют. Поручители не нужны. ИП и коммерческим компаниям предлагаем индивидуальные условия предоставления займа.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Можно ли заранее рассчитать размер займа и ставку по процентам?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              К заемщику предъявляются следующие требования: Гражданство РФ. Возраст от 18 лет. Транспорт, передаваемый в залог, является собственностью заемщика. Транспортное средство не находится в другом залоге. Документы для оформления договора: паспорт РФ, ПТС и СТС. Доход, кредитная история, официальное трудоустройство на получение займа не влияют. Поручители не нужны. ИП и коммерческим компаниям предлагаем индивидуальные условия предоставления займа.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Автоломбард работает круглосуточно?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              К заемщику предъявляются следующие требования: Гражданство РФ. Возраст от 18 лет. Транспорт, передаваемый в залог, является собственностью заемщика. Транспортное средство не находится в другом залоге. Документы для оформления договора: паспорт РФ, ПТС и СТС. Доход, кредитная история, официальное трудоустройство на получение займа не влияют. Поручители не нужны. ИП и коммерческим компаниям предлагаем индивидуальные условия предоставления займа.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Какими способами погашается заем?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              К заемщику предъявляются следующие требования: Гражданство РФ. Возраст от 18 лет. Транспорт, передаваемый в залог, является собственностью заемщика. Транспортное средство не находится в другом залоге. Документы для оформления договора: паспорт РФ, ПТС и СТС. Доход, кредитная история, официальное трудоустройство на получение займа не влияют. Поручители не нужны. ИП и коммерческим компаниям предлагаем индивидуальные условия предоставления займа.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="demand">
+    <div class="container">
+      <div class="title white-text">
+        <h2>Требования для получения займа в Автоломбарде</h2>
+      </div>
+      <div class="demand__content">
+        <div class="demand__card">
+          <div class="demand__card-title">
+            <div class="demand__card-img">
+              <img src="./img/demand1.svg" alt="" height="50">
+            </div>
+            <div class="demand__card-title__text">Требования<br><b>к заёмщику</b></div>
+          </div>
+          <ul class="demand__list">
+            <li class="demand__item">Гражданство РФ.</li>
+            <li class="demand__item">Возраст от 18 лет.</li>
+            <li class="demand__item">Собственник транспортного средства.</li>
+          </ul>
+        </div>
+        <div class="demand__card">
+          <div class="demand__card-title">
+            <div class="demand__card-img">
+              <img src="./img/demand2.svg" alt="" height="50">
+            </div>
+            <div class="demand__card-title__text">Требования<br><b>к транспорту</b></div>
+          </div>
+          <ul class="demand__list">
+            <li class="demand__item">Учет в ГИБДД.</li>
+            <li class="demand__item">Не старше 20 лет (исключение — коллекционный транспорт).</li>
+            <li class="demand__item">Рабочее техническое состояние.</li>
+            <li class="demand__item">Транспорт не обременен другим залогом.</li>
+            <li class="demand__item">Возможен дубликат ПТС.</li>
+          </ul>
+        </div>
+        <div class="demand__card">
+          <div class="demand__card-title">
+            <div class="demand__card-img">
+              <img src="./img/demand3.svg" alt="" height="50">
+            </div>
+            <div class="demand__card-title__text">Требования<br><b>к документам</b></div>
+          </div>
+          <ul class="demand__list">
+            <li class="demand__item">Паспорт гражданина РФ.</li>
+            <li class="demand__item">ПТС - Паспорт технического средства</li>
+            <li class="demand__item">СТС - Свидетельство о регистрации технического средства</li>
+          </ul>
+        </div>
+      </div>
+      <div class="demand__content-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="demand__card">
+              <div class="demand__card-title">
+                <div class="demand__card-img">
+                  <img src="./img/demand1.svg" alt="" height="50">
+                </div>
+                <div class="demand__card-title__text">Требования<br><b>к заёмщику</b></div>
+              </div>
+              <ul class="demand__list">
+                <li class="demand__item">Гражданство РФ.</li>
+                <li class="demand__item">Возраст от 18 лет.</li>
+                <li class="demand__item">Собственник транспортного средства.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="demand__card">
+              <div class="demand__card-title">
+                <div class="demand__card-img">
+                  <img src="./img/demand2.svg" alt="" height="50">
+                </div>
+                <div class="demand__card-title__text">Требования<br><b>к транспорту</b></div>
+              </div>
+              <ul class="demand__list">
+                <li class="demand__item">Учет в ГИБДД.</li>
+                <li class="demand__item">Не старше 20 лет (исключение — коллекционный транспорт).</li>
+                <li class="demand__item">Рабочее техническое состояние.</li>
+                <li class="demand__item">Транспорт не обременен другим залогом.</li>
+                <li class="demand__item">Возможен дубликат ПТС.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="demand__card">
+              <div class="demand__card-title">
+                <div class="demand__card-img">
+                  <img src="./img/demand3.svg" alt="" height="50">
+                </div>
+                <div class="demand__card-title__text">Требования<br><b>к документам</b></div>
+              </div>
+              <ul class="demand__list">
+                <li class="demand__item">Паспорт гражданина РФ.</li>
+                <li class="demand__item">ПТС - Паспорт технического средства</li>
+                <li class="demand__item">СТС - Свидетельство о регистрации технического средства</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination3"></div>
+        <div class="swiper-button-prev3"></div>
+        <div class="swiper-button-next3"></div>
+      </div>
+    </div>
+  </section>
+  <section class="order">
+    <div class="container">
+      <div class="title">
+        <h2>Как быстро получить займ в автоломбарде под залог ПТС</h2>
+      </div>
+      <div class="order__content">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="order__card first">
+              <div class="order__step">Шаг 1</div>
+              <div class="order__name">Заявка</div>
+              <div class="order__desc">Оформите заявку через форму на сайте и получите одобрение</div>
+              <div class="order__time">5 минут</div>
+              <div class="order__button">
+                <button class="btn-submit yellow submit-order">Оставить заявку</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="order__card second">
+              <div class="order__step">Шаг 2</div>
+              <div class="order__name">Оформление документов</div>
+              <div class="order__desc">Оценка автомобиля и оформление документов в офисе автоломбарда</div>
+              <div class="order__time">40 минут
+              </div>
+              <div class="order__button">
+                <button class="btn-submit yellow submit-order">Оставить заявку</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="order__card third">
+              <div class="order__step">Шаг 3</div>
+              <div class="order__name">Выплата</div>
+              <div class="order__desc">Выплата наличными или перевод на карту, авто в вашем пользовании</div>
+              <div class="order__time">Моментально</div>
+              <div class="order__button">
+                <button class="btn-submit yellow submit-order">Оставить заявку</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination4"></div>
+        <div class="swiper-button-prev4"></div>
+        <div class="swiper-button-next4"></div>
+      </div>
+    </div>
+  </section>
+  <section class="reviews">
+    <div class="container">
+      <div class="title">
+        <h2>Отзывы</h2>
+      </div>
+      <div class="reviews-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="reviews__card">
+              <div class="reviews__name">Григорий</div>
+              <div class="reviews__city">Москва</div>
+              <div class="reviews__text">Срочно понадобилось переехать в другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобиль через автоломбард. Даже не ожидал, что так быстро все пройдет, спустя 40 минут уезжал из офиса уже с деньгами.</div>
+              <div class="reviews__more hidden">читать полностью</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="reviews__card">
+              <div class="reviews__name">Александр</div>
+              <div class="reviews__city">Москва</div>
+              <div class="reviews__text">Срочно понадобилось переехать в другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобиль через автоломбард. Даже не ожидал, что так быстро все пройдет, спустя 40 минут уезжал из офиса уже с деньгами.</div>
+              <div class="reviews__more hidden">читать полностью</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="reviews__card">
+              <div class="reviews__name">Евгения</div>
+              <div class="reviews__city">Москва</div>
+              <div class="reviews__text">Срочно понадобилось переехать в другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобиль через автоломбард. Даже не ожидал, что так быстро все пройдет, спустя 40 минут уезжал из офиса уже с деньгами. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab autem doloribus, aut eaque nobis incidunt atque rerum, esse minima nostrum pariatur quam. Nihil tenetur cupiditate dolorum itaque incidunt, sapiente quas!Срочно понадобилось переехать в другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобиль через автоломбард. Даже не ожидал, что так быстро все пройдет, спустя 40 минут уезжал из офиса уже с деньгами. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab autem doloribus, aut eaque nobis incidunt atque rerum, esse minima nostrum pariatur quam. Nihil tenetur cupiditate dolorum itaque incidunt, sapiente quas!</div>
+              <div class="reviews__more hidden">читать полностью</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="reviews__card">
+              <div class="reviews__name">Григорий</div>
+              <div class="reviews__city">Москва</div>
+              <div class="reviews__text">Срочно понадобилось переехать в другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобиль через автоломбард. Даже не ожидал, что так быстро все пройдет, спустя 40 минут уезжал из офиса уже с деньгами.в другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобилв другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобил</div>
+              <div class="reviews__more hidden">читать полностью</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="reviews__card">
+              <div class="reviews__name">Григорий</div>
+              <div class="reviews__city">Москва</div>
+              <div class="reviews__text">Срочно понадобилось переехать в другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобиль через автоломбард. Даже не ожидал, что так быстро все пройдет, спустя 40 минут уезжал из офиса уже с деньгами.</div>
+              <div class="reviews__more hidden">читать полностью</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="reviews__card">
+              <div class="reviews__name">Григорий</div>
+              <div class="reviews__city">Москва</div>
+              <div class="reviews__text">Срочно понадобилось переехать в другой город, понимал, что быстро машину продать не смогу. Решил реализовать автомобиль через автоломбард. Даже не ожидал, что так быстро все пройдет, спустя 40 минут уезжал из офиса уже с деньгами.</div>
+              <div class="reviews__more hidden">читать полностью</div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination5"></div>
+        <div class="swiper-button-prev5"></div>
+        <div class="swiper-button-next5"></div>
+      </div>
+    </div>
+  </section>
+  <section class="call">
+    <div class="container">
+      <div class="call__content">
+        <div class="call__title">Остались вопросы?</div>
+        <div class="call__text">Наши менеджеры помогут вам</div>
+        <div class="nav__phone">
+          <div class="phone__icon">
+            <a href="tel:88007756033">
+              <svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_101_3334)">
+                  <path d="M17.4754 12.5382C16.3122 12.5382 15.17 12.3563 14.0877 11.9986C13.5573 11.8177 12.9053 11.9837 12.5816 12.3161L10.4453 13.9288C7.96768 12.6063 6.44154 11.0807 5.13708 8.62169L6.70235 6.541C7.10902 6.13487 7.25488 5.54162 7.08012 4.98498C6.7209 3.89693 6.53842 2.7553 6.53842 1.59155C6.53847 0.750845 5.85452 0.0668945 5.01387 0.0668945H1.5246C0.683951 0.0668945 0 0.750845 0 1.5915C0 11.2276 7.83938 19.0669 17.4754 19.0669C18.3161 19.0669 19 18.3829 19 17.5423V14.0628C19 13.2222 18.316 12.5382 17.4754 12.5382Z" fill="#FFDE52"/>
+                </g>
+                <defs>
+                  <clippath id="clip0_101_3334">
+                    <rect width="19" height="19" fill="white" transform="translate(0 0.0668945)"/>
+                  </clippath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+          <div class="phone__container">
+            <div class="phone__number">8 800 775-60-33</div>
+          </div>
+        </div>
+        <div class="call__button">
+          <button class="btn-submit yellow call-order">Заказать звонок</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="map">
+    <div class="title">
+      <h2>Офисы для оформления займа под залог ПТС в Москве</h2>
+    </div>
+    <div class="map__content" id="map">
+      <div class="call__content">
+        <div class="call__title">Остались вопросы?</div>
+        <div class="call__text">Наши менеджеры помогут вам</div>
+        <div class="nav__phone">
+          <div class="phone__icon">
+            <a href="tel:88007756033">
+              <svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_101_3334)">
+                  <path d="M17.4754 12.5382C16.3122 12.5382 15.17 12.3563 14.0877 11.9986C13.5573 11.8177 12.9053 11.9837 12.5816 12.3161L10.4453 13.9288C7.96768 12.6063 6.44154 11.0807 5.13708 8.62169L6.70235 6.541C7.10902 6.13487 7.25488 5.54162 7.08012 4.98498C6.7209 3.89693 6.53842 2.7553 6.53842 1.59155C6.53847 0.750845 5.85452 0.0668945 5.01387 0.0668945H1.5246C0.683951 0.0668945 0 0.750845 0 1.5915C0 11.2276 7.83938 19.0669 17.4754 19.0669C18.3161 19.0669 19 18.3829 19 17.5423V14.0628C19 13.2222 18.316 12.5382 17.4754 12.5382Z" fill="#FFDE52"/>
+                </g>
+                <defs>
+                  <clippath id="clip0_101_3334">
+                    <rect width="19" height="19" fill="white" transform="translate(0 0.0668945)"/>
+                  </clippath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+          <div class="phone__container">
+            <div class="phone__number">8 800 775-60-33</div>
+          </div>
+        </div>
+        <div class="call__button">
+          <button class="btn-submit yellow call-order">Заказать звонок</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__left">
+          <div class="footer__logo">
+            <img src="./img/footer_logo.png" alt="">
+          </div>
+          <div class="footer__contacts">
+            <div class="contacts__phone">
+              <a href="tel:+78007756033">8 800 775 60 33</a>
+            </div>
+            <div class="contacts__mail">
+              <a href="mail:info@деньги-птс.рф">info@деньги-птс.рф</a>
+            </div>
+            <div class="contacts__time">8:00 - 21:00</div>
+          </div>
+        </div>
+        <div class="footer__right">
+          <ul class="desc__list">
+            <li class="desc__item"><a href="./purchase.html">Займ под залог ПТС автомобиля</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под залог автомобиля</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под спецтехнику</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под грузовой транспорт</a></li>
+          </ul>
+          <ul class="desc__list">
+            <li class="desc__item"><a href="./purchase.html">Займ под коммерческий транспорт</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под залог мототехники</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под водный транспорт</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <section class="last">
+    <div class="container">
+      <div class="last__content">
+        <div class="last_name">ООО “Название”</div>
+        <div class="last_law">Все права принадлежат...., 2022 г</div>
+        <div class="last_politics">
+          <a href="#">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script defer src="./js/main.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1
+        },
+        100: {
+          slidesPerView: 1,
+          slidesPerGroup: 1
+        }
+      }
+    });
+    const swiper2 = new Swiper('.swiper2', {
+      loop: true,
+      slidesPerView: 3,
+      slidesPerGroup: 1,
+      spaceBetween: 50,
+      pagination: {
+        el: '.swiper-pagination2',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next2',
+        prevEl: '.swiper-button-prev2',
+      },
+      breakpoints: {
+        1180: {
+          slidesPerView: 3,
+          slidesPerGroup: 1,
+          spaceBetween: 50,
+        },
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1,
+          spaceBetween: 35,
+        },
+        100: {
+          slidesPerView: 1,
+          slidesPerGroup: 1
+        }
+      }
+    });
+    const swiper3 = new Swiper('.demand__content-swiper', {
+      loop: false,
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+      spaceBetween: 18,
+      pagination: {
+        el: '.swiper-pagination3',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next3',
+        prevEl: '.swiper-button-prev3',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1,
+        },
+        100: {
+          slidesPerView: 1,
+          slidesPerGroup: 1
+        }
+      }
+    });
+    const swiper4 = new Swiper('.order__content', {
+      loop: false,
+      slidesPerView: 3,
+      slidesPerGroup: 1,
+      spaceBetween: 26,
+      pagination: {
+        el: '.swiper-pagination4',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next4',
+        prevEl: '.swiper-button-prev4',
+      },
+      breakpoints: {
+        992: {
+          slidesPerView: 3,
+          slidesPerGroup: 1,
+          spaceBetween: 26,
+        },
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1,
+          spaceBetween: 18,
+        },
+        100: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          spaceBetween: 18,
+        }
+      }
+    });
+    const swiper5 = new Swiper('.reviews-swiper', {
+      loop: false,
+      slidesPerView: 3,
+      slidesPerGroup: 1,
+      spaceBetween: 26,
+      pagination: {
+        el: '.swiper-pagination5',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next5',
+        prevEl: '.swiper-button-prev5',
+      },
+      breakpoints: {
+        960: {
+          slidesPerView: 3,
+          slidesPerGroup: 1,
+          spaceBetween: 26,
+        },
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1,
+          spaceBetween: 26,
+        },
+        100: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+        }
+      }
+    });
+
+    ymaps.ready(init);
+
+    function init(){
+      var myMap = new ymaps.Map("map", {
+        width: 100,
+        height: 100,
+        center: [55.804987, 37.505499],
+        zoom: 15
+      });
+
+      MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+        '<div class="popover top">' +
+        '<div class="arrow"></div>' +
+        '<div class="popover-inner">' +
+        '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+        '</div>' +
+        '</div>', {
+              /**
+               * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+               * @function
+               * @name build
+               */
+              build: function () {
+                  this.constructor.superclass.build.call(this);
+
+                  this._$element = $('.popover', this.getParentElement());
+
+                  this.applyElementOffset();
+
+                  this._$element.find('.close')
+                      .on('click', $.proxy(this.onCloseClick, this));
+              },
+
+              /**
+               * Удаляет содержимое макета из DOM.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+               * @function
+               * @name clear
+               */
+              clear: function () {
+                  this._$element.find('.close')
+                      .off('click');
+
+                  this.constructor.superclass.clear.call(this);
+              },
+
+              /**
+               * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+               * @function
+               * @name onSublayoutSizeChange
+               */
+              onSublayoutSizeChange: function () {
+                  MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                  if(!this._isElement(this._$element)) {
+                      return;
+                  }
+
+                  this.applyElementOffset();
+
+                  this.events.fire('shapechange');
+              },
+
+              /**
+               * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+               * @function
+               * @name applyElementOffset
+               */
+              applyElementOffset: function () {
+                  this._$element.css({
+                      left: -(this._$element[0].offsetWidth / 2),
+                      top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                  });
+              },
+
+              /**
+               * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+               * @function
+               * @name onCloseClick
+               */
+              onCloseClick: function (e) {
+                  e.preventDefault();
+
+                  this.events.fire('userclose');
+              },
+
+              /**
+               * Используется для автопозиционирования (balloonAutoPan).
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+               * @function
+               * @name getClientBounds
+               * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+               */
+              getShape: function () {
+                  if(!this._isElement(this._$element)) {
+                      return MyBalloonLayout.superclass.getShape.call(this);
+                  }
+
+                  var position = this._$element.position();
+
+                  return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                      [position.left, position.top], [
+                          position.left + this._$element[0].offsetWidth,
+                          position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                      ]
+                  ]));
+              },
+
+              /**
+               * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+               * @function
+               * @private
+               * @name _isElement
+               * @param {jQuery} [element] Элемент.
+               * @returns {Boolean} Флаг наличия.
+               */
+              _isElement: function (element) {
+                  return element && element[0] && element.find('.arrow')[0];
+              }
+          });
+
+        MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover-container">' +
+            '<div class="popover-title">$[properties.balloonHeader]</div>' +
+            '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+          '</div>'
+        );
+
+      var myPlacemark = new ymaps.Placemark([55.804987, 37.505499], {
+        balloonHeader: 'Малый песчаный переулок, д.8',
+        balloonContent: 'Подробнее',
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: 'img/flag.png',
+        iconImageSize: [44, 61],
+        iconImageOffset: [-15, -50],
+        balloonShadow: false,
+        balloonLayout: MyBalloonLayout,
+        balloonContentLayout: MyBalloonContentLayout,
+        balloonPanelMaxMapArea: 0,
+        balloonOffset: [3, -65],
+        hideIconOnBalloonOpen: false,
+      });
+
+      myMap.geoObjects.add(myPlacemark);
+      myMap.behaviors.disable('scrollZoom');
+    }
+  </script>
+</html>

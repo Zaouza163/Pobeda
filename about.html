@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="style/style.css">
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=2b7d613a-43a5-43b8-a53a-82992e7616cf&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+  <div class="modal" id="modal-form">
+    <div class="modal__content">
+      <div class="close-btn"></div>
+      <div class="modal__title"></div>
+      <div class="modal__text"></div>
+      <input type="text" placeholder="Имя">
+      <input type="tel" placeholder="Телефон">
+      <select name="city" id="city">
+        <option value="Москва">Москва</option>
+        <option value="Санкт-Петербург">Санкт-Петербург</option>
+        <option value="Тольятти">Тольятти</option>
+      </select>
+      <div class="modal__button">
+        <button class="btn-submit yellow order-btn"></button>
+      </div>
+      <div class="modal__desc">Нажимая “Оставить заявку” вы соглашаетесь с условиями обработки и хранения сайта</div>
+    </div>
+  </div>
+  <div class="modal" id="modal-confirm">
+    <div class="modal__content">
+      <div class="close-btn"></div>
+      <div class="modal__title__confirm">Спасибо!</div>
+      <div class="modal__text__confirm">Ваша заявка отправлена, менеджер свяжется с вами в ближайшее время</div>
+      <div class="modal__button">
+        <button class="btn-submit yellow ok">ОК</button>
+      </div>
+    </div>
+  </div>
+  <header class="header about">
+    <div class="header__nav container">
+      <button class="nav-toggle" data-bs-toggle="collapse" data-bs-target="#burgerToggler" aria-controls="burgerToggler" aria-expanded="false">
+        <span class="bar-top"></span>
+        <span class="bar-mid"></span>
+        <span class="bar-bot"></span>
+      </button>
+      <div class="nav__logo">
+        <a href="./main.html"><img src="./img/main_logo.png" width="160" alt="Лого"></a>
+      </div>
+      <div class="nav__city outer">
+        <div class="city__preambula">Город</div>
+        <div class="current__city" data-city="Москва"></div>
+        <div class="city-choise">
+          <a class="city-choise__item" href="#">Москва</a>
+          <a class="city-choise__item" href="#">Санкт-Петербург</a>
+          <a class="city-choise__item" href="#">Тольятти</a>
+        </div>
+      </div>
+      <div class="nav__menu outer">
+        <ul class="menu__list">
+          <li class="list__item"><a href="./about.html">О компании</a></li>
+          <li class="list__item dropdown"><a href="">Услуги</a>
+            <div class="dropdown__menu">
+              <ul class="dropdown__list">
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под залог ПТС автомобиля</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под залог автомобиля</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под спецтехнику</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под грузовой транспорт</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под коммерческий транспорт</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под залог мототехники</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="./purchase.html" class="dropdown__link">Займ под водный транспорт</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="list__item"><a href="./contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="nav__phone">
+        <div class="phone__icon">
+          <a href="tel:88007756033">
+            <svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_101_3334)">
+                <path d="M17.4754 12.5382C16.3122 12.5382 15.17 12.3563 14.0877 11.9986C13.5573 11.8177 12.9053 11.9837 12.5816 12.3161L10.4453 13.9288C7.96768 12.6063 6.44154 11.0807 5.13708 8.62169L6.70235 6.541C7.10902 6.13487 7.25488 5.54162 7.08012 4.98498C6.7209 3.89693 6.53842 2.7553 6.53842 1.59155C6.53847 0.750845 5.85452 0.0668945 5.01387 0.0668945H1.5246C0.683951 0.0668945 0 0.750845 0 1.5915C0 11.2276 7.83938 19.0669 17.4754 19.0669C18.3161 19.0669 19 18.3829 19 17.5423V14.0628C19 13.2222 18.316 12.5382 17.4754 12.5382Z" fill="#FFDE52"/>
+              </g>
+              <defs>
+                <clippath id="clip0_101_3334">
+                  <rect width="19" height="19" fill="white" transform="translate(0 0.0668945)"/>
+                </clippath>
+              </defs>
+            </svg>
+          </a>
+        </div>
+        <div class="phone__container outer">
+          <div class="phone__number">8 800 775-60-33</div>
+          <a class="phone__link call-order" href="tel:88007756033">Заказать звонок</a>
+        </div>
+      </div>
+      <div class="header__menu-burger about" id="burgerToggler">
+        <ul class="menu-burger__list">
+          <li class="menu-burger__item city-change">
+            <svg width="11" height="16" viewbox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.65992 0.540405C5.76519 0.552506 5.87158 0.562187 5.97685 0.575498C6.7283 0.667464 7.42712 0.928841 8.05986 1.37536C9.20999 2.18612 9.92672 3.32238 10.2134 4.77206C10.3008 5.21132 10.3344 5.65784 10.2963 6.10678C10.2649 6.47343 10.1765 6.82799 10.0667 7.17528C9.84833 7.87228 9.55156 8.53057 9.22455 9.17312C8.6366 10.3324 7.95907 11.4299 7.24681 12.5033C6.67455 13.3648 6.07764 14.2071 5.45498 15.0263C5.44826 15.036 5.44042 15.0444 5.43034 15.0565C5.42027 15.0469 5.41019 15.0384 5.40235 15.0287C4.1615 13.3806 2.99681 11.6731 1.98555 9.84835C1.58127 9.11625 1.20946 8.36479 0.918291 7.57097C0.763745 7.14866 0.634958 6.71787 0.571124 6.26772C0.527448 5.9652 0.531927 5.66026 0.556565 5.35653C0.618159 4.60749 0.811901 3.9008 1.15795 3.24857C1.86348 1.91385 2.91058 1.06074 4.28917 0.685615C4.56803 0.60938 4.85248 0.567027 5.14029 0.550086C5.15709 0.548876 5.17277 0.544036 5.18957 0.540405C5.34635 0.540405 5.50314 0.540405 5.65992 0.540405ZM7.25801 5.34443C7.25465 4.2372 6.43377 3.35505 5.41131 3.35868C4.4034 3.3611 3.58588 4.25172 3.58812 5.34443C3.59036 6.44439 4.4146 7.32775 5.43482 7.32533C6.44049 7.3217 7.26025 6.43108 7.25801 5.34443Z" fill="#5C657E"/>
+              </svg>
+            <div class="nav__city">
+              <div class="city__preambula">Город</div>
+              <div class="current__city burger" data-city="Москва"></div>
+              <div class="city-choise burger">
+                <a class="city-choise__item burger" href="#">Москва</a>
+                <a class="city-choise__item burger" href="#">Санкт-Петербург</a>
+                <a class="city-choise__item burger" href="#">Тольятти</a>
+              </div>
+            </div>
+          </li>
+          <li class="menu-burger__item nav"><a href="./about.html">О компании</a></li>
+          <li class="menu-burger__item list__item dropdown nav" id="burger-menu-service"><a href="#">Услуги</a>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под залог ПТС автомобиля</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под залог автомобиля</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под спецтехнику</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под грузовой транспорт</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под коммерческий транспорт</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под залог мототехники</a>
+            </li>
+            <li class="dropdown-menu-burger">
+              <a href="./purchase.html">Займ под водный транспорт</a>
+            </li>
+          </li>
+          <li class="menu-burger__item nav"><a href="./contacts.html">Контакты</a></li>
+          <li class="menu-burger__item phone">
+            <div class="nav__phone">
+              <div class="phone__icon">
+                <a href="tel:88007756033">
+                  <svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_101_3334)">
+                      <path d="M17.4754 12.5382C16.3122 12.5382 15.17 12.3563 14.0877 11.9986C13.5573 11.8177 12.9053 11.9837 12.5816 12.3161L10.4453 13.9288C7.96768 12.6063 6.44154 11.0807 5.13708 8.62169L6.70235 6.541C7.10902 6.13487 7.25488 5.54162 7.08012 4.98498C6.7209 3.89693 6.53842 2.7553 6.53842 1.59155C6.53847 0.750845 5.85452 0.0668945 5.01387 0.0668945H1.5246C0.683951 0.0668945 0 0.750845 0 1.5915C0 11.2276 7.83938 19.0669 17.4754 19.0669C18.3161 19.0669 19 18.3829 19 17.5423V14.0628C19 13.2222 18.316 12.5382 17.4754 12.5382Z" fill="#343A4B"/>
+                    </g>
+                    <defs>
+                      <clippath id="clip0_101_3335">
+                        <rect width="19" height="19" fill="white" transform="translate(0 0.0668945)"/>
+                      </clippath>
+                    </defs>
+                  </svg>
+                </a>
+              </div>
+              <div class="phone__container">
+                <div class="phone__number">8 800 775-60-33</div>
+              </div>
+            </div>
+            <button class="btn-submit yellow call-order">Заказать звонок</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="to-the-main">
+    <div class="container">
+      <a href="./main.html">Главная</a>
+    </div>
+  </div>
+  <section class="info about">
+    <div class="container">
+      <div class="title">
+        <h2>О компании</h2>
+      </div>
+      <div class="info__text"><b>Автоломбард “Pobeda”</b> — это предоставление гарантированно качественных услуг, политика лояльности к клиентам, прозрачные сделки. Мы открыли филиалы в 17 городах России и выдаем займы под залог транспортных средств и ПТС. Займы выдаются под залог любой категории техники: легковой и грузовой транспорт, спецтехника, водный и воздушный транспорт.</div>
+      <div class="swiper-cards about">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="card__image">
+                  <img src="./img/card1.png" alt="">
+                </div>
+                <div class="card__description">
+                  <a href="./context.html"><p class="description__text"><b>Легковые автомобили.</b><br>Отечественные и импортные авто</p></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="card__image">
+                  <img src="./img/card2.png" alt="">
+                </div>
+                <div class="card__description">
+                  <a href="./context.html"><p class="description__text"><b>Спецтехника.</b><br>Строительная техника, погрузчики, краны</p></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="card__image">
+                  <img src="./img/card3.png" alt="">
+                </div>
+                <div class="card__description">
+                  <a href="./context.html"><p class="description__text"><b>Грузовой транспорт.</b><br>Автофургоны, тягачи, микроавтобусы</p></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="card__image">
+                  <img src="./img/card4.png" alt="">
+                </div>
+                <div class="card__description">
+                  <a href="./context.html"><p class="description__text"><b>Коммерческий транспорт.</b><br>Туристические автобусы, маршрутные такси</p></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="card__image">
+                  <img src="./img/card5.png" alt="">
+                </div>
+                <div class="card__description">
+                  <a href="./context.html"><p class="description__text"><b>Водный транспорт.</b><br>Парусные и моторные суда, яхты, гидроциклы, катеры</p></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="card__image">
+                  <img src="./img/card6.png" alt="">
+                </div>
+                <div class="card__description">
+                  <a href="./context.html"><p class="description__text"><b>Мототехника.</b><br>Квадроциклы, мотоциклы, скутеры</p></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      <div class="info__cards about">
+        <div class="card">
+          <div class="card__image">
+            <img src="./img/card1.png" alt="">
+          </div>
+          <div class="card__description">
+            <a href="./context.html"><p class="description__text"><b>Легковые автомобили.</b><br>Отечественные и импортные авто</p></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image">
+            <img src="./img/card2.png" alt="">
+          </div>
+          <div class="card__description">
+            <a href="./context.html"><p class="description__text"><b>Спецтехника.</b><br>Строительная техника, погрузчики, краны</p></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image">
+            <img src="./img/card3.png" alt="">
+          </div>
+          <div class="card__description">
+            <a href="./context.html"><p class="description__text"><b>Грузовой транспорт.</b><br>Автофургоны, тягачи, микроавтобусы</p></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image">
+            <img src="./img/card4.png" alt="">
+          </div>
+          <div class="card__description">
+            <a href="./context.html"><p class="description__text"><b>Коммерческий транспорт.</b><br>Туристические автобусы, маршрутные такси</p></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image">
+            <img src="./img/card5.png" alt="">
+          </div>
+          <div class="card__description">
+            <a href="./context.html"><p class="description__text"><b>Водный транспорт.</b><br>Парусные и моторные суда, яхты, гидроциклы, катеры</p></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__image">
+            <img src="./img/card6.png" alt="">
+          </div>
+          <div class="card__description">
+            <a href="./context.html"><p class="description__text"><b>Мототехника.</b><br>Квадроциклы, мотоциклы, скутеры</p></a>
+          </div>
+        </div>
+      </div>
+      <div class="info__text"><b>Индивидуальный подход</b> — это условие взаимодействия с клиентами. Определяющими условиями для расчета процентной ставки становится суммы займа и срок, на который он выдается. Учитываются и другие факторы, которые стороны обсуждают до подписания договора. Если у вас нет времени для посещения офиса компании и подписания договора, мы произведем оценку транспорта и оформим в удобном для вас месте. Заявка на займ под залог транспорта или ПТС получает одобрение в течение 5 минут, оформление сделки — в течение часа. Получение денег — в день одобрения заявки.</div>
+    </div>
+  </section>
+  <section class="call">
+    <div class="container">
+      <div class="call__content">
+        <div class="call__title">Остались вопросы?</div>
+        <div class="call__text">Наши менеджеры помогут вам</div>
+        <div class="nav__phone">
+          <div class="phone__icon">
+            <a href="tel:88007756033">
+              <svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_101_3334)">
+                  <path d="M17.4754 12.5382C16.3122 12.5382 15.17 12.3563 14.0877 11.9986C13.5573 11.8177 12.9053 11.9837 12.5816 12.3161L10.4453 13.9288C7.96768 12.6063 6.44154 11.0807 5.13708 8.62169L6.70235 6.541C7.10902 6.13487 7.25488 5.54162 7.08012 4.98498C6.7209 3.89693 6.53842 2.7553 6.53842 1.59155C6.53847 0.750845 5.85452 0.0668945 5.01387 0.0668945H1.5246C0.683951 0.0668945 0 0.750845 0 1.5915C0 11.2276 7.83938 19.0669 17.4754 19.0669C18.3161 19.0669 19 18.3829 19 17.5423V14.0628C19 13.2222 18.316 12.5382 17.4754 12.5382Z" fill="#FFDE52"/>
+                </g>
+                <defs>
+                  <clippath id="clip0_101_3334">
+                    <rect width="19" height="19" fill="white" transform="translate(0 0.0668945)"/>
+                  </clippath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+          <div class="phone__container">
+            <div class="phone__number">8 800 775-60-33</div>
+          </div>
+        </div>
+        <div class="call__button">
+          <button class="btn-submit yellow call-order">Заказать звонок</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="map">
+    <div class="title">
+      <h2>Офисы для оформления займа под залог ПТС в Москве</h2>
+    </div>
+    <div class="map__content" id="map">
+      <div class="call__content">
+        <div class="call__title">Остались вопросы?</div>
+        <div class="call__text">Наши менеджеры помогут вам</div>
+        <div class="nav__phone">
+          <div class="phone__icon">
+            <a href="tel:88007756033">
+              <svg width="19" height="20" viewbox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_101_3334)">
+                  <path d="M17.4754 12.5382C16.3122 12.5382 15.17 12.3563 14.0877 11.9986C13.5573 11.8177 12.9053 11.9837 12.5816 12.3161L10.4453 13.9288C7.96768 12.6063 6.44154 11.0807 5.13708 8.62169L6.70235 6.541C7.10902 6.13487 7.25488 5.54162 7.08012 4.98498C6.7209 3.89693 6.53842 2.7553 6.53842 1.59155C6.53847 0.750845 5.85452 0.0668945 5.01387 0.0668945H1.5246C0.683951 0.0668945 0 0.750845 0 1.5915C0 11.2276 7.83938 19.0669 17.4754 19.0669C18.3161 19.0669 19 18.3829 19 17.5423V14.0628C19 13.2222 18.316 12.5382 17.4754 12.5382Z" fill="#FFDE52"/>
+                </g>
+                <defs>
+                  <clippath id="clip0_101_3334">
+                    <rect width="19" height="19" fill="white" transform="translate(0 0.0668945)"/>
+                  </clippath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+          <div class="phone__container">
+            <div class="phone__number">8 800 775-60-33</div>
+          </div>
+        </div>
+        <div class="call__button">
+          <button class="btn-submit yellow call-order">Заказать звонок</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__left">
+          <div class="footer__logo">
+            <img src="./img/footer_logo.png" alt="">
+          </div>
+          <div class="footer__contacts">
+            <div class="contacts__phone">
+              <a href="tel:+78007756033">8 800 775 60 33</a>
+            </div>
+            <div class="contacts__mail">
+              <a href="mail:info@деньги-птс.рф">info@деньги-птс.рф</a>
+            </div>
+            <div class="contacts__time">8:00 - 21:00</div>
+          </div>
+        </div>
+        <div class="footer__right">
+          <ul class="desc__list">
+            <li class="desc__item"><a href="./purchase.html">Займ под залог ПТС автомобиля</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под залог автомобиля</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под спецтехнику</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под грузовой транспорт</a></li>
+          </ul>
+          <ul class="desc__list">
+            <li class="desc__item"><a href="./purchase.html">Займ под коммерческий транспорт</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под залог мототехники</a></li>
+            <li class="desc__item"><a href="./purchase.html">Займ под водный транспорт</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <section class="last">
+    <div class="container">
+      <div class="last__content">
+        <div class="last_name">ООО “Название”</div>
+        <div class="last_law">Все права принадлежат...., 2022 г</div>
+        <div class="last_politics">
+          <a href="#">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script defer src="./js/about.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1
+        },
+        100: {
+          slidesPerView: 1,
+          slidesPerGroup: 1
+        }
+      }
+    });
+
+    ymaps.ready(init);
+
+    function init(){
+      var myMap = new ymaps.Map("map", {
+        width: 100,
+        height: 100,
+        center: [55.804987, 37.505499],
+        zoom: 15
+      });
+
+      MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+        '<div class="popover top">' +
+        '<div class="arrow"></div>' +
+        '<div class="popover-inner">' +
+        '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+        '</div>' +
+        '</div>', {
+              /**
+               * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+               * @function
+               * @name build
+               */
+              build: function () {
+                  this.constructor.superclass.build.call(this);
+
+                  this._$element = $('.popover', this.getParentElement());
+
+                  this.applyElementOffset();
+
+                  this._$element.find('.close')
+                      .on('click', $.proxy(this.onCloseClick, this));
+              },
+
+              /**
+               * Удаляет содержимое макета из DOM.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+               * @function
+               * @name clear
+               */
+              clear: function () {
+                  this._$element.find('.close')
+                      .off('click');
+
+                  this.constructor.superclass.clear.call(this);
+              },
+
+              /**
+               * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+               * @function
+               * @name onSublayoutSizeChange
+               */
+              onSublayoutSizeChange: function () {
+                  MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                  if(!this._isElement(this._$element)) {
+                      return;
+                  }
+
+                  this.applyElementOffset();
+
+                  this.events.fire('shapechange');
+              },
+
+              /**
+               * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+               * @function
+               * @name applyElementOffset
+               */
+              applyElementOffset: function () {
+                  this._$element.css({
+                      left: -(this._$element[0].offsetWidth / 2),
+                      top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                  });
+              },
+
+              /**
+               * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+               * @function
+               * @name onCloseClick
+               */
+              onCloseClick: function (e) {
+                  e.preventDefault();
+
+                  this.events.fire('userclose');
+              },
+
+              /**
+               * Используется для автопозиционирования (balloonAutoPan).
+               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+               * @function
+               * @name getClientBounds
+               * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+               */
+              getShape: function () {
+                  if(!this._isElement(this._$element)) {
+                      return MyBalloonLayout.superclass.getShape.call(this);
+                  }
+
+                  var position = this._$element.position();
+
+                  return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                      [position.left, position.top], [
+                          position.left + this._$element[0].offsetWidth,
+                          position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                      ]
+                  ]));
+              },
+
+              /**
+               * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+               * @function
+               * @private
+               * @name _isElement
+               * @param {jQuery} [element] Элемент.
+               * @returns {Boolean} Флаг наличия.
+               */
+              _isElement: function (element) {
+                  return element && element[0] && element.find('.arrow')[0];
+              }
+          });
+
+        MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover-container">' +
+            '<div class="popover-title">$[properties.balloonHeader]</div>' +
+            '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+          '</div>'
+        );
+
+      var myPlacemark = new ymaps.Placemark([55.804987, 37.505499], {
+        balloonHeader: 'Малый песчаный переулок, д.8',
+        balloonContent: 'Подробнее',
+      }, {
+        iconLayout: 'default#image',
+        iconImageHref: 'img/flag.png',
+        iconImageSize: [44, 61],
+        iconImageOffset: [-15, -50],
+        balloonShadow: false,
+        balloonLayout: MyBalloonLayout,
+        balloonContentLayout: MyBalloonContentLayout,
+        balloonPanelMaxMapArea: 0,
+        balloonOffset: [3, -65],
+        hideIconOnBalloonOpen: false,
+      });
+
+      myMap.geoObjects.add(myPlacemark);
+      myMap.behaviors.disable('scrollZoom');
+    }
+  </script>
+</html>
