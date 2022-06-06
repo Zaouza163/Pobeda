@@ -59,9 +59,18 @@
         <div class="city__preambula">Город</div>
         <div class="current__city" data-city="Москва"></div>
         <div class="city-choise">
-          <a class="city-choise__item" href="#">Москва</a>
-          <a class="city-choise__item" href="#">Санкт-Петербург</a>
-          <a class="city-choise__item" href="#">Тольятти</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Москва</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Санкт-Петербург</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Краснодар</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Магнитогорск</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Пенза</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Пермь</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Рязань</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Самара</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Саратов</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Сызрань</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Тольятти</a>
+          <a class="city-choise__item" href="#" onclick="location.reload(); return false;">Челябинск</a>
         </div>
       </div>
       <div class="nav__menu outer">
@@ -127,9 +136,18 @@
               <div class="city__preambula">Город</div>
               <div class="current__city burger" data-city="Москва"></div>
               <div class="city-choise burger">
-                <a class="city-choise__item burger" href="#">Москва</a>
-                <a class="city-choise__item burger" href="#">Санкт-Петербург</a>
-                <a class="city-choise__item burger" href="#">Тольятти</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Москва</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Санкт-Петербург</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Краснодар</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Магнитогорск</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Пенза</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Пермь</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Рязань</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Самара</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Саратов</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Сызрань</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Тольятти</a>
+                <a class="city-choise__item burger" href="#" onclick="location.reload(); return false;">Челябинск</a>
               </div>
             </div>
           </li>
@@ -314,7 +332,7 @@
           </div>
         </div>
       </div>
-      <div class="info__text"><b>Индивидуальный подход</b> — это условие взаимодействия с клиентами. Определяющими условиями для расчета процентной ставки становится суммы займа и срок, на который он выдается. Учитываются и другие факторы, которые стороны обсуждают до подписания договора. Если у вас нет времени для посещения офиса компании и подписания договора, мы произведем оценку транспорта и оформим в удобном для вас месте. Заявка на займ под залог транспорта или ПТС получает одобрение в течение 5 минут, оформление сделки — в течение часа. Получение денег — в день одобрения заявки.</div>
+      <div class="info__text"><b>Индивидуальный подход</b> — это условие взаимодействия с клиентами. Определяющими условиями для расчета процентной ставки становится суммы займа и срок, на который он выдается. Учитываются и другие факторы, которые стороны обсуждают до подписания договора.<br>Если у вас нет времени для посещения офиса компании и подписания договора, мы произведем оценку транспорта и оформим в удобном для вас месте. Заявка на займ под залог транспорта или ПТС получает одобрение в течение 5 минут, оформление сделки — в течение часа. Получение денег — в день одобрения заявки.</div>
     </div>
   </section>
   <section class="call">
@@ -413,17 +431,6 @@
       </div>
     </div>
   </footer>
-  <section class="last">
-    <div class="container">
-      <div class="last__content">
-        <div class="last_name">ООО “Название”</div>
-        <div class="last_law">Все права принадлежат...., 2022 г</div>
-        <div class="last_politics">
-          <a href="#">Политика конфиденциальности</a>
-        </div>
-      </div>
-    </div>
-  </section>
 </body>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -454,156 +461,1975 @@
       }
     });
 
-    ymaps.ready(init);
+    if (localStorage.getItem('currentCity') == null) {
+      localStorage.setItem('currentCity', 'Москва');
+    }
 
-    function init(){
-      var myMap = new ymaps.Map("map", {
-        width: 100,
-        height: 100,
-        center: [55.804987, 37.505499],
-        zoom: 15
-      });
+    if (localStorage.getItem('currentCity') == 'Москва') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [55.755819, 37.617644],
+          zoom: 11
+        });
 
-      MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
-        '<div class="popover top">' +
-        '<div class="arrow"></div>' +
-        '<div class="popover-inner">' +
-        '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
-        '</div>' +
-        '</div>', {
-              /**
-               * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
-               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
-               * @function
-               * @name build
-               */
-              build: function () {
-                  this.constructor.superclass.build.call(this);
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
 
-                  this._$element = $('.popover', this.getParentElement());
+                    this._$element = $('.popover', this.getParentElement());
 
-                  this.applyElementOffset();
+                    this.applyElementOffset();
 
-                  this._$element.find('.close')
-                      .on('click', $.proxy(this.onCloseClick, this));
-              },
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
 
-              /**
-               * Удаляет содержимое макета из DOM.
-               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
-               * @function
-               * @name clear
-               */
-              clear: function () {
-                  this._$element.find('.close')
-                      .off('click');
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
 
-                  this.constructor.superclass.clear.call(this);
-              },
+                    this.constructor.superclass.clear.call(this);
+                },
 
-              /**
-               * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
-               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
-               * @function
-               * @name onSublayoutSizeChange
-               */
-              onSublayoutSizeChange: function () {
-                  MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
 
-                  if(!this._isElement(this._$element)) {
-                      return;
-                  }
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
 
-                  this.applyElementOffset();
+                    this.applyElementOffset();
 
-                  this.events.fire('shapechange');
-              },
+                    this.events.fire('shapechange');
+                },
 
-              /**
-               * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
-               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
-               * @function
-               * @name applyElementOffset
-               */
-              applyElementOffset: function () {
-                  this._$element.css({
-                      left: -(this._$element[0].offsetWidth / 2),
-                      top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
-                  });
-              },
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
 
-              /**
-               * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
-               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
-               * @function
-               * @name onCloseClick
-               */
-              onCloseClick: function (e) {
-                  e.preventDefault();
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
 
-                  this.events.fire('userclose');
-              },
+                    this.events.fire('userclose');
+                },
 
-              /**
-               * Используется для автопозиционирования (balloonAutoPan).
-               * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
-               * @function
-               * @name getClientBounds
-               * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
-               */
-              getShape: function () {
-                  if(!this._isElement(this._$element)) {
-                      return MyBalloonLayout.superclass.getShape.call(this);
-                  }
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
 
-                  var position = this._$element.position();
+                    var position = this._$element.position();
 
-                  return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
-                      [position.left, position.top], [
-                          position.left + this._$element[0].offsetWidth,
-                          position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
-                      ]
-                  ]));
-              },
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
 
-              /**
-               * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
-               * @function
-               * @private
-               * @name _isElement
-               * @param {jQuery} [element] Элемент.
-               * @returns {Boolean} Флаг наличия.
-               */
-              _isElement: function (element) {
-                  return element && element[0] && element.find('.arrow')[0];
-              }
-          });
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
 
-        MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
-          '<div class="popover-container">' +
-            '<div class="popover-title">$[properties.balloonHeader]</div>' +
-            '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
-          '</div>'
-        );
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
 
-      var myPlacemark = new ymaps.Placemark([55.804987, 37.505499], {
-        balloonHeader: 'Малый песчаный переулок, д.8',
-        balloonContent: 'Подробнее',
-      }, {
-        iconLayout: 'default#image',
-        iconImageHref: 'img/flag.png',
-        iconImageSize: [44, 61],
-        iconImageOffset: [-15, -50],
-        balloonShadow: false,
-        balloonLayout: MyBalloonLayout,
-        balloonContentLayout: MyBalloonContentLayout,
-        balloonPanelMaxMapArea: 0,
-        balloonOffset: [3, -65],
-        hideIconOnBalloonOpen: false,
-      });
+        var myPlacemark1 = new ymaps.Placemark([55.760724, 37.659882], {
+          balloonHeader: 'Путейский тупик, 6, стр. 1',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
 
-      myMap.geoObjects.add(myPlacemark);
-      myMap.behaviors.disable('scrollZoom');
+        var myPlacemark2 = new ymaps.Placemark([55.805571, 37.542905], {
+          balloonHeader: 'ул. Академика Ильюшина, 11',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        var myPlacemark3 = new ymaps.Placemark([55.705956, 37.500519], {
+          balloonHeader: 'Мосфильмовская ул., 51А',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.geoObjects.add(myPlacemark2);
+        myMap.geoObjects.add(myPlacemark3);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Санкт-Петербург') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [59.939099, 30.315877],
+          zoom: 11
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([59.927041, 30.322758], {
+          balloonHeader: 'Гороховая улица, 47с2',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        var myPlacemark2 = new ymaps.Placemark([59.965318, 30.341030], {
+          balloonHeader: 'Пироговская наб., 17, корп. 7',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        var myPlacemark3 = new ymaps.Placemark([59.884300, 30.385817], {
+          balloonHeader: 'ул. Фучика, 14',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.geoObjects.add(myPlacemark2);
+        myMap.geoObjects.add(myPlacemark3);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Краснодар') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [45.035470, 38.975313],
+          zoom: 12
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([45.036062, 39.032134], {
+          balloonHeader: 'Новороссийская ул., 9',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        var myPlacemark2 = new ymaps.Placemark([45.075894, 39.002794], {
+          balloonHeader: 'Московская ул., 108',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.geoObjects.add(myPlacemark2);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Магнитогорск') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [53.407163, 58.980291],
+          zoom: 13
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([53.394283, 59.058312], {
+          balloonHeader: 'ул. Маяковского, 19/4',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Пенза') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [53.195042, 45.018316],
+          zoom: 13
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([53.212851, 45.010037], {
+          balloonHeader: 'Рузаевская ул., 7',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        var myPlacemark2 = new ymaps.Placemark([53.193027, 45.005950], {
+          balloonHeader: 'Революционная ул., 65',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.geoObjects.add(myPlacemark2);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Пермь') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [58.010455, 56.229443],
+          zoom: 12
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([57.994848, 56.259143], {
+          balloonHeader: 'ул. Чернышевского, 32',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        var myPlacemark2 = new ymaps.Placemark([57.987987, 56.219211], {
+          balloonHeader: 'ул. Карпинского, 17, корп. 1',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.geoObjects.add(myPlacemark2);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Рязань') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [54.629565, 39.741917],
+          zoom: 13
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([54.611804, 39.683862], {
+          balloonHeader: 'ул. Строителей, 14, стр. 1',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        var myPlacemark2 = new ymaps.Placemark([54.625151, 39.724288], {
+          balloonHeader: 'ул. Типанова, 25',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.geoObjects.add(myPlacemark2);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Самара') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [53.195878, 50.100202],
+          zoom: 12
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([53.234700, 50.230527], {
+          balloonHeader: 'просп. Карла Маркса, 318Г',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        var myPlacemark2 = new ymaps.Placemark([53.205467, 50.190153], {
+          balloonHeader: 'ул. Дыбенко, 23',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.geoObjects.add(myPlacemark2);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Саратов') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [51.533562, 46.034266],
+          zoom: 12
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([51.561883, 45.996129], {
+          balloonHeader: 'Луговая ул., 80',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Сызрань') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [53.155669, 48.474611],
+          zoom: 13
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([53.134016, 48.441113], {
+          balloonHeader: 'Образцовская ул., 46',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Тольятти') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [53.507852, 49.420411],
+          zoom: 12
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([53.527587, 49.304942], {
+          balloonHeader: 'ул. Свердлова, 24А',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.behaviors.disable('scrollZoom');
+      }
+    } else if (localStorage.getItem('currentCity') == 'Челябинск') {
+      ymaps.ready(init);
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          width: 100,
+          height: 100,
+          center: [55.159902, 61.402554],
+          zoom: 12
+        });
+
+        MyBalloonLayout = ymaps.templateLayoutFactory.createClass(
+          '<div class="popover top">' +
+          '<div class="arrow"></div>' +
+          '<div class="popover-inner">' +
+          '$[[options.contentLayout observeSize minWidth=220 maxWidth=225 minHeight=55]]' +
+          '</div>' +
+          '</div>', {
+                /**
+                 * Строит экземпляр макета на основе шаблона и добавляет его в родительский HTML-элемент.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#build
+                 * @function
+                 * @name build
+                 */
+                build: function () {
+                    this.constructor.superclass.build.call(this);
+
+                    this._$element = $('.popover', this.getParentElement());
+
+                    this.applyElementOffset();
+
+                    this._$element.find('.close')
+                        .on('click', $.proxy(this.onCloseClick, this));
+                },
+
+                /**
+                 * Удаляет содержимое макета из DOM.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/layout.templateBased.Base.xml#clear
+                 * @function
+                 * @name clear
+                 */
+                clear: function () {
+                    this._$element.find('.close')
+                        .off('click');
+
+                    this.constructor.superclass.clear.call(this);
+                },
+
+                /**
+                 * Метод будет вызван системой шаблонов АПИ при изменении размеров вложенного макета.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onSublayoutSizeChange
+                 */
+                onSublayoutSizeChange: function () {
+                    MyBalloonLayout.superclass.onSublayoutSizeChange.apply(this, arguments);
+
+                    if(!this._isElement(this._$element)) {
+                        return;
+                    }
+
+                    this.applyElementOffset();
+
+                    this.events.fire('shapechange');
+                },
+
+                /**
+                 * Сдвигаем балун, чтобы "хвостик" указывал на точку привязки.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name applyElementOffset
+                 */
+                applyElementOffset: function () {
+                    this._$element.css({
+                        left: -(this._$element[0].offsetWidth / 2),
+                        top: -(this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight)
+                    });
+                },
+
+                /**
+                 * Закрывает балун при клике на крестик, кидая событие "userclose" на макете.
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/IBalloonLayout.xml#event-userclose
+                 * @function
+                 * @name onCloseClick
+                 */
+                onCloseClick: function (e) {
+                    e.preventDefault();
+
+                    this.events.fire('userclose');
+                },
+
+                /**
+                 * Используется для автопозиционирования (balloonAutoPan).
+                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/ILayout.xml#getClientBounds
+                 * @function
+                 * @name getClientBounds
+                 * @returns {Number[][]} Координаты левого верхнего и правого нижнего углов шаблона относительно точки привязки.
+                 */
+                getShape: function () {
+                    if(!this._isElement(this._$element)) {
+                        return MyBalloonLayout.superclass.getShape.call(this);
+                    }
+
+                    var position = this._$element.position();
+
+                    return new ymaps.shape.Rectangle(new ymaps.geometry.pixel.Rectangle([
+                        [position.left, position.top], [
+                            position.left + this._$element[0].offsetWidth,
+                            position.top + this._$element[0].offsetHeight + this._$element.find('.arrow')[0].offsetHeight
+                        ]
+                    ]));
+                },
+
+                /**
+                 * Проверяем наличие элемента (в ИЕ и Опере его еще может не быть).
+                 * @function
+                 * @private
+                 * @name _isElement
+                 * @param {jQuery} [element] Элемент.
+                 * @returns {Boolean} Флаг наличия.
+                 */
+                _isElement: function (element) {
+                    return element && element[0] && element.find('.arrow')[0];
+                }
+            });
+
+          MyBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div class="popover-container">' +
+              '<div class="popover-title">$[properties.balloonHeader]</div>' +
+              '<a class="popover-link" href="contacts.html#contacts" class="popover-content">$[properties.balloonContent]</a>' +
+            '</div>'
+          );
+
+        var myPlacemark1 = new ymaps.Placemark([55.180761, 61.370151], {
+          balloonHeader: 'ул. Косарева, 50Б',
+          balloonContent: 'Подробнее',
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'img/flag.png',
+          iconImageSize: [44, 61],
+          iconImageOffset: [-15, -50],
+          balloonShadow: false,
+          balloonLayout: MyBalloonLayout,
+          balloonContentLayout: MyBalloonContentLayout,
+          balloonPanelMaxMapArea: 0,
+          balloonOffset: [3, -65],
+          hideIconOnBalloonOpen: false,
+        });
+
+        myMap.geoObjects.add(myPlacemark1);
+        myMap.behaviors.disable('scrollZoom');
+      }
     }
   </script>
 </html>

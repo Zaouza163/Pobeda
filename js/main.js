@@ -25,6 +25,10 @@ let sliderValue1 = document.querySelector('#sliderValue1');
 let sliderValue2 = document.querySelector('#sliderValue2');
 const readMoreBtn = document.querySelectorAll('.reviews__more');
 let reviewTextAreas = document.querySelectorAll('.reviews__text');
+const mainTitle = document.querySelector('.main-title');
+const mapTitle = document.querySelector('.map > .title > h2');
+
+currentCity.textContent = localStorage.getItem('currentCity');
 
 reviewTextAreas.forEach((area) => {
   if (window.innerWidth >= 960) {
@@ -179,8 +183,91 @@ toggle.addEventListener('click', function(e) {
   this.classList.toggle('opened');
 });
 
-currentCity.textContent = currentCity.getAttribute('data-city')
-currentCityBurger.textContent = currentCityBurger.getAttribute('data-city')
+if (localStorage.getItem('currentCity') == null) {
+  currentCity.setAttribute('data-city', 'Москва');
+} else {
+  currentCity.setAttribute('data-city', localStorage.getItem('currentCity'));
+}
+
+currentCity.textContent = currentCity.getAttribute('data-city');
+currentCityBurger.textContent = currentCityBurger.getAttribute('data-city');
+
+window.addEventListener('load', () => {
+  let reviewsCity = document.querySelectorAll('.reviews__city');
+  if (currentCity.getAttribute('data-city') == 'Москва') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Москве';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Москва'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Москве';
+  } else if (currentCity.getAttribute('data-city') == 'Санкт-Петербург') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Санкт-Петербурге';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Санкт-Петербург'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Санкт-Петербурге';
+  } else if (currentCity.getAttribute('data-city') == 'Тольятти') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Тольятти';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Тольятти'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Тольятти';
+  } else if (currentCity.getAttribute('data-city') == 'Краснодар') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Краснодаре';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Краснодар'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Краснодаре';
+  } else if (currentCity.getAttribute('data-city') == 'Магнитогорск') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Магнитогорске';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Магнитогорск'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Магнитогорске';
+  } else if (currentCity.getAttribute('data-city') == 'Пенза') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Пензе';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Пенза'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Пензе';
+  } else if (currentCity.getAttribute('data-city') == 'Пермь') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Перми';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Пермь'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Перми';
+  } else if (currentCity.getAttribute('data-city') == 'Рязань') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Рязане';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Рязань'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Рязане';
+  } else if (currentCity.getAttribute('data-city') == 'Самара') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Самаре';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Самара'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Самаре';
+  } else if (currentCity.getAttribute('data-city') == 'Саратов') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Саратове';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Саратов'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Саратове';
+  } else if (currentCity.getAttribute('data-city') == 'Сызрань') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Сызране';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Сызрань'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Сызране';
+  } else if (currentCity.getAttribute('data-city') == 'Челябинск') {
+    mainTitle.textContent = 'Срочный выкуп автомобиля в Челябинске';
+    reviewsCity.forEach((reviewCity) => {
+      reviewCity.textContent = 'Челябинск'
+    })
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Челябинске';
+  }
+})
 
 currentCity.addEventListener('click', () => {
   cityChoise.classList.toggle('display-flex')
@@ -192,17 +279,167 @@ currentCityBurger.addEventListener('click', () => {
 
 cityChoiseItem.forEach((city) => {
   city.addEventListener('click', () => {
-    currentCity.setAttribute('data-city', city.textContent)
-    currentCity.textContent = currentCity.getAttribute('data-city')
-    cityChoise.classList.toggle('display-flex')
+    currentCity.setAttribute('data-city', city.textContent);
+    localStorage.setItem('currentCity', city.textContent);
+    currentCity.textContent = currentCity.getAttribute('data-city');
+    cityChoise.classList.toggle('display-flex');
+    let reviewsCity = document.querySelectorAll('.reviews__city');
+    if (currentCity.getAttribute('data-city') == 'Москва') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Москве';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Москва'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Москве';
+    } else if (currentCity.getAttribute('data-city') == 'Санкт-Петербург') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Санкт-Петербурге';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Санкт-Петербург'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Санкт-Петербурге';
+    } else if (currentCity.getAttribute('data-city') == 'Тольятти') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Тольятти';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Тольятти'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Тольятти';
+    } else if (currentCity.getAttribute('data-city') == 'Краснодар') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Краснодаре';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Краснодар'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Краснодаре';
+    } else if (currentCity.getAttribute('data-city') == 'Магнитогорск') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Магнитогорске';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Магнитогорск'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Магнитогорске';
+    } else if (currentCity.getAttribute('data-city') == 'Пенза') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Пензе';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Пенза'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Пензе';
+    } else if (currentCity.getAttribute('data-city') == 'Пермь') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Перми';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Пермь'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Перми';
+    } else if (currentCity.getAttribute('data-city') == 'Рязань') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Рязане';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Рязань'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Рязане';
+    } else if (currentCity.getAttribute('data-city') == 'Самара') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Самаре';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Самара'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Самаре';
+    } else if (currentCity.getAttribute('data-city') == 'Саратов') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Саратове';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Саратов'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Саратове';
+    } else if (currentCity.getAttribute('data-city') == 'Сызрань') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Сызране';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Сызрань'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Сызране';
+    } else if (currentCity.getAttribute('data-city') == 'Челябинск') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Челябинске';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Челябинск'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Челябинске';
+    }
   })
 })
 
 cityChoiseItemBurger.forEach((city) => {
   city.addEventListener('click', () => {
-    currentCityBurger.setAttribute('data-city', city.textContent)
+    currentCityBurger.setAttribute('data-city', city.textContent);
+    localStorage.setItem('currentCity', city.textContent);
     currentCityBurger.textContent = currentCityBurger.getAttribute('data-city')
     cityChoiseBurger.classList.toggle('display-flex')
+    let reviewsCity = document.querySelectorAll('.reviews__city');
+    if (currentCityBurger.getAttribute('data-city') == 'Москва') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Москве';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Москва'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Москве';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Санкт-Петербург') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Санкт-Петербурге';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Санкт-Петербург'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Санкт-Петербурге';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Тольятти') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Тольятти';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Тольятти'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Тольятти';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Краснодар') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Краснодаре';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Краснодар'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Краснодаре';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Магнитогорск') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Магнитогорске';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Магнитогорск'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Магнитогорске';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Пенза') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Пензе';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Пенза'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Пензе';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Пермь') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Перми';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Пермь'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Перми';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Рязань') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Рязане';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Рязань'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Рязане';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Самара') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Самаре';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Самара'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Самаре';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Саратов') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Саратове';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Саратов'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Саратове';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Сызрань') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Сызране';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Сызрань'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Сызране';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Челябинск') {
+      mainTitle.textContent = 'Срочный выкуп автомобиля в Челябинске';
+      reviewsCity.forEach((reviewCity) => {
+        reviewCity.textContent = 'Челябинск'
+      })
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Челябинске';
+    }
   })
 })
 

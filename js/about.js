@@ -14,6 +14,7 @@ const modalForm = document.querySelector('#modal-form');
 const modalConfirm = document.querySelector('#modal-confirm');
 const closeBtn = document.querySelectorAll('.close-btn');
 const okBtn = document.querySelector('.ok');
+const mapTitle = document.querySelector('.map > .title > h2');
 
 okBtn.addEventListener('click', () => {
   modalConfirm.classList.remove('active');
@@ -78,8 +79,42 @@ toggle.addEventListener('click', function(e) {
   this.classList.toggle('opened');
 });
 
+if (localStorage.getItem('currentCity') == null) {
+  currentCity.setAttribute('data-city', 'Москва');
+} else {
+  currentCity.setAttribute('data-city', localStorage.getItem('currentCity'));
+}
+
 currentCity.textContent = currentCity.getAttribute('data-city')
 currentCityBurger.textContent = currentCityBurger.getAttribute('data-city')
+
+window.addEventListener('load', () => {
+  if (currentCity.getAttribute('data-city') == 'Москва') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Москве';
+  } else if (currentCity.getAttribute('data-city') == 'Санкт-Петербург') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Санкт-Петербурге';
+  } else if (currentCity.getAttribute('data-city') == 'Тольятти') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Тольятти';
+  } else if (currentCity.getAttribute('data-city') == 'Краснодар') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Краснодаре';
+  } else if (currentCity.getAttribute('data-city') == 'Магнитогорск') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Магнитогорске';
+  } else if (currentCity.getAttribute('data-city') == 'Пенза') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Пензе';
+  } else if (currentCity.getAttribute('data-city') == 'Пермь') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Перми';
+  } else if (currentCity.getAttribute('data-city') == 'Рязань') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Рязане';
+  } else if (currentCity.getAttribute('data-city') == 'Самара') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Самаре';
+  } else if (currentCity.getAttribute('data-city') == 'Саратов') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Саратове';
+  } else if (currentCity.getAttribute('data-city') == 'Сызрань') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Сызране';
+  } else if (currentCity.getAttribute('data-city') == 'Челябинск') {
+    mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Челябинске';
+  }
+})
 
 currentCity.addEventListener('click', () => {
   cityChoise.classList.toggle('display-flex')
@@ -92,16 +127,68 @@ currentCityBurger.addEventListener('click', () => {
 cityChoiseItem.forEach((city) => {
   city.addEventListener('click', () => {
     currentCity.setAttribute('data-city', city.textContent)
+    localStorage.setItem('currentCity', city.textContent);
     currentCity.textContent = currentCity.getAttribute('data-city')
     cityChoise.classList.toggle('display-flex')
+    if (currentCity.getAttribute('data-city') == 'Москва') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Москве';
+    } else if (currentCity.getAttribute('data-city') == 'Санкт-Петербург') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Санкт-Петербурге';
+    } else if (currentCity.getAttribute('data-city') == 'Тольятти') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Тольятти';
+    } else if (currentCity.getAttribute('data-city') == 'Краснодар') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Краснодаре';
+    } else if (currentCity.getAttribute('data-city') == 'Магнитогорск') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Магнитогорске';
+    } else if (currentCity.getAttribute('data-city') == 'Пенза') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Пензе';
+    } else if (currentCity.getAttribute('data-city') == 'Пермь') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Перми';
+    } else if (currentCity.getAttribute('data-city') == 'Рязань') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Рязане';
+    } else if (currentCity.getAttribute('data-city') == 'Самара') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Самаре';
+    } else if (currentCity.getAttribute('data-city') == 'Саратов') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Саратове';
+    } else if (currentCity.getAttribute('data-city') == 'Сызрань') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Сызране';
+    } else if (currentCity.getAttribute('data-city') == 'Челябинск') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Челябинске';
+    }
   })
 })
 
 cityChoiseItemBurger.forEach((city) => {
   city.addEventListener('click', () => {
     currentCityBurger.setAttribute('data-city', city.textContent)
+    localStorage.setItem('currentCity', city.textContent);
     currentCityBurger.textContent = currentCityBurger.getAttribute('data-city')
     cityChoiseBurger.classList.toggle('display-flex')
+    if (currentCityBurger.getAttribute('data-city') == 'Москва') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Москве';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Санкт-Петербург') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Санкт-Петербурге';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Тольятти') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Тольятти';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Краснодар') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Краснодаре';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Магнитогорск') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Магнитогорске';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Пенза') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Пензе';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Пермь') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Перми';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Рязань') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Рязане';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Самара') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Самаре';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Саратов') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Саратове';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Сызрань') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Сызране';
+    } else if (currentCityBurger.getAttribute('data-city') == 'Челябинск') {
+      mapTitle.textContent = 'Офисы для оформления займа под залог ПТС в Челябинске';
+    }
   })
 })
 
